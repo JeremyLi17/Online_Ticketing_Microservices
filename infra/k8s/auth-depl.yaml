@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: auth
-          image: jeremyli17/auth
+          image: us.gcr.io/crypto-shore-355503/auth
 ---
 apiVersion: v1
 kind: Service
