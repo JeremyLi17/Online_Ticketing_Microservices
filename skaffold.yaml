@@ -5,12 +5,13 @@ deploy:
     manifests:
       - ./infra/k8s/*
 build:
-  # local:
-  #   push: false
-  googleCloudBuild:
-    projectId: crypto-shore-355503
+  local:
+    push: false
+  # googleCloudBuild:
+  #   projectId: crypto-shore-355503
   artifacts:
-    - image: us.gcr.io/crypto-shore-355503/auth
+    # - image: us.gcr.io/crypto-shore-355503/auth
+    - image: jeremyli17/auth
       context: auth
       docker:
         dockerfile: Dockerfile
