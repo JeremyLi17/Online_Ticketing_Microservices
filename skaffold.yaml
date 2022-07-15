@@ -35,6 +35,14 @@ build:
         manual:
           - src: 'src/**/*.ts'
             dest: .
+    - image: jeremyli17/expiration
+      context: expiration
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: 'src/**/*.ts'
+            dest: .
     - image: jeremyli17/ticket-client
       context: client
       docker:
