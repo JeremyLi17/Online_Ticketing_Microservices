@@ -32,6 +32,7 @@ router.post(
     // use await keyword to manually wait before process the remaining function
     await new TicketCreatedPublisher(natsWrapper.client).publish({
       id: ticket.id,
+      version: ticket.version,
       title: ticket.title,
       price: ticket.price,
       userId: ticket.userId,
