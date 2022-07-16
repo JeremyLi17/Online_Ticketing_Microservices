@@ -1,12 +1,16 @@
 import { MongoMemoryServer } from 'mongodb-memory-server';
 import mongoose from 'mongoose';
 import jwt from 'jsonwebtoken';
+import { STRIPE_KEY } from './secret';
 
 declare global {
-  var signin: () => string[];
+  var signin: (id?: string) => string[];
 }
 
 jest.mock('../nats-wrapper');
+
+// for realistic payments test
+process.env.STRIPE_KEY = STRIPE_KEY;
 
 let mongo: any;
 // before all test been execute
@@ -40,10 +44,10 @@ afterAll(async () => {
 });
 
 // global function for signup and return the cookie
-global.signin = () => {
+global.signin = (id?: string) => {
   // Build a JWT payload. {id, email}
   const payload = {
-    id: new mongoose.Types.ObjectId().toHexString(),
+    id: id || new mongoose.Types.ObjectId().toHexString(),
     email: 'test@test.com',
   };
 
