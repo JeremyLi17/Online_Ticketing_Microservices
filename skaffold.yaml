@@ -43,6 +43,14 @@ build:
         manual:
           - src: 'src/**/*.ts'
             dest: .
+    - image: jeremyli17/payments
+      context: payments
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: 'src/**/*.ts'
+            dest: .
     - image: jeremyli17/ticket-client
       context: client
       docker:
