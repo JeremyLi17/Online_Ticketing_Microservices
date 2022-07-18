@@ -1,19 +1,19 @@
-import axios from "axios";
+import axios from 'axios';
 
 const buildClient = ({ req }) => {
-  if (typeof window === "undefined") {
+  if (typeof window === 'undefined') {
     // We are on the server
 
     // return a pre-config axios client
     return axios.create({
-      baseURL:
-        "http://ingress-nginx-controller.ingress-nginx.svc.cluster.local",
+      baseURL: 'http://www.micro-ticketing-dev.shop/',
+      // "http://ingress-nginx-controller.ingress-nginx.svc.cluster.local",
       headers: req.headers,
     });
   } else {
     // we are on the browser
     return axios.create({
-      baseURL: "/",
+      baseURL: '/',
     });
   }
 };

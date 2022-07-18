@@ -18,7 +18,8 @@ app.use(
     // no encryption
     signed: false,
     // Must use HTTPS
-    secure: process.env.NODE_ENV !== 'test',
+    // secure: process.env.NODE_ENV !== 'test',
+    secure: false,
   })
 );
 
