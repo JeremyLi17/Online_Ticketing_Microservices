@@ -6,8 +6,9 @@ const buildClient = ({ req }) => {
 
     // return a pre-config axios client
     return axios.create({
-      baseURL: 'http://www.micro-ticketing-dev.shop/',
-      // "http://ingress-nginx-controller.ingress-nginx.svc.cluster.local",
+      // baseURL: 'http://www.micro-ticketing-dev.shop/',
+      baseURL:
+        'http://ingress-nginx-controller.ingress-nginx.svc.cluster.local',
       headers: req.headers,
     });
   } else {
